@@ -6,10 +6,10 @@ const Footer = () => {
     <FooterContainer>
       <FooterContent>
         <Logo>
-          <span>My</span>
-          <span>Project</span>
+          <span>Town</span>
+          <span>Book</span>
         </Logo>
-        <p>My dummy boiler plate</p>
+        <p>Your community library for books and reading rooms</p>
         <SocialLinks>
           <a href="https://github.com" target="_blank" rel="noopener noreferrer">
             <FaGithub />
@@ -22,7 +22,7 @@ const Footer = () => {
           </a>
         </SocialLinks>
         <Copyright>
-          &copy; {new Date().getFullYear()} MyProject. All rights reserved.
+          &copy; {new Date().getFullYear()} TownBook. All rights reserved.
         </Copyright>
       </FooterContent>
     </FooterContainer>

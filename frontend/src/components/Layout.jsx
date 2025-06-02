@@ -25,6 +25,8 @@ const Container = styled.div`
 `;
 
 const Main = styled.main`
+background:white;
+color:#64748b;
   flex: 1;
   padding: 1rem 0;
   overflow-y: auto;

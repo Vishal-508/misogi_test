@@ -6,6 +6,8 @@ const Input = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.sm};
   font-size: 1rem;
+  color:black;
+  background:white;
   transition: border-color 0.2s, box-shadow 0.2s;
 
   &:focus {

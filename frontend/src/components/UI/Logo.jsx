@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const Logo = () => {
   return (
     <LogoContainer>
-      <span>My</span>
-      <span>Project</span>
+      <span>Town</span>
+      <span>Book</span>
     </LogoContainer>
   );
 };

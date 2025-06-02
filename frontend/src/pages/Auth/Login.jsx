@@ -58,7 +58,7 @@ const handleSubmit = async (e) => {
       <AuthContainer>
         <AuthCard>
           <Logo />
-          <h2>Login to MyProject</h2>
+          <h2>Login to TownBook</h2>
           <Form onSubmit={handleSubmit}>
             <Input
               type="email"

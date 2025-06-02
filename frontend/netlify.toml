@@ -4,6 +4,6 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://mesogiai.onrender.com/api/:splat"
+  to = "https://library-g5ib.onrender.com/api/:splat"
   status = 200
   force = true
