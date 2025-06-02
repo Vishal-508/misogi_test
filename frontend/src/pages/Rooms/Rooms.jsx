@@ -5,6 +5,7 @@ import { fetchRooms } from '../../features/rooms/roomsSlice';
 import { Container, Grid } from '../../styles/utils';
 import RoomCard from '../../components/Room/RoomCard';
 import SearchBar from '../../components/Common/SearchBar';
+import { Link } from 'react-router-dom';
 
 const Rooms = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,11 @@ console.log("rroms",rooms)
           <p>Browse and reserve our reading rooms</p>
         </Header>
 
+ 
         <Toolbar>
           <SearchBar placeholder="Search rooms..." />
-          {user?.isLibrarian && (
-            <Button as="a" href="/rooms/add" small>
+          {user?.role === "1" && ( // Only show for librarians
+            <Button as={Link} to="/rooms/add" small>
               Add New Room
             </Button>
           )}
@@ -34,7 +36,7 @@ console.log("rroms",rooms)
 
         {status === 'loading' ? (
           <Loading>Loading rooms...</Loading>
-        ) : rooms?.data.length === 0 ? (
+        ) : rooms?.data?.length === 0 ? (
           <EmptyState>No rooms found</EmptyState>
         ) : (
           <Grid>

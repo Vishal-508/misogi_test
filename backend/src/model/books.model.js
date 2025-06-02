@@ -5,6 +5,7 @@ const bookSchema = new mongoose.Schema({
   author: { type: String, required: true },
   isbn: { type: String, unique: true, sparse: true },
   copies: { type: Number, required: true, min: 0 },
+  image:{type:String},
   availableCopies: { type: Number, required: true, min: 0 }
 }, { timestamps: true });
 module.exports = mongoose.model('Book', bookSchema);

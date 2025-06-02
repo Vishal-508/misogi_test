@@ -7,6 +7,7 @@ import { createReservation } from "../../features/reservations/reservationsSlice
 import { Container } from "../../styles/utils";
 import { Button } from "../../components/UI/index";
 import ReservationForm from "../../components/Reservations/ReservationForm";
+import { Link } from 'react-router-dom';
 
 const RoomDetails = () => {
   const { id } = useParams();
@@ -46,7 +47,14 @@ const RoomDetails = () => {
   return (
     <DetailsContainer>
       <Container>
-        <BackButton onClick={() => navigate(-1)}>← Back</BackButton>
+     <FlexHeader>
+          <BackButton onClick={() => navigate(-1)}>← Back</BackButton>
+          {user?.role === "1" && ( // Only show for librarians
+            <EditButton as={Link} to={`/rooms/${id}/edit`}>
+              Edit Room
+            </EditButton>
+          )}
+        </FlexHeader>
 
         <RoomInfo>
           <RoomImage
@@ -79,16 +87,16 @@ const RoomDetails = () => {
               <MetaItem>
                 <strong>Location:</strong> {room?.location || "Not specified"}
               </MetaItem>
-              {room.facilities?.length > 0 && (
+              {room?.facilities?.length > 0 && (
                 <MetaItem>
-                  <strong>Facilities:</strong> {room.facilities.join(", ")}
+                  <strong>Facilities:</strong> {room?.facilities?.join(", ")}
                 </MetaItem>
               )}
             </Meta>
           </Details>
         </RoomInfo>
 
-        {user && (
+        {user && !user?.role ==="1" &&(
           <ReservationSection>
             <h3>Reserve this room</h3>
             <ReservationForm type="room" onSubmit={handleReserve} />
@@ -108,6 +116,21 @@ const Loading = styled.div`
   text-align: center;
   padding: 2rem;
   color: ${({ theme }) => theme.colors.textSecondary};
+`;
+
+const FlexHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+`;
+
+const EditButton = styled(Button)`
+  background: ${({ theme }) => theme.colors.secondary};
+  
+  &:hover {
+    background: ${({ theme }) => theme.colors.secondaryDark};
+  }
 `;
 
 const NotFound = styled.div`

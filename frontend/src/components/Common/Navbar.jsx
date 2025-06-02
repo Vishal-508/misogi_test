@@ -26,9 +26,7 @@ console.log("user",user)
         </LogoLink>
 
         <NavLinks>
-          <NavItem to="/">
-            <FaHome /> Home
-          </NavItem>
+     
           
           {token && (
             <>

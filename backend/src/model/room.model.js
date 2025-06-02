@@ -4,6 +4,7 @@ const roomSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
   capacity: { type: Number, required: true },
   description: String,
-  location: String
+  location: String,
+  image:{type:String},
 }, { timestamps: true });
 module.exports = mongoose.model('Room', roomSchema);
